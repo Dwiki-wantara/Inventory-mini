@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_create_product"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/secondaryBg"
+    tools:context="com.septianfujianto.inventorymini.ui.product.CreateProductActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:id="@+id/productImageWrap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.septianfujianto.inventorymini.utils.SquaredImageView
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentTop="true"
+                    android:id="@+id/productImage"
+                    android:src="@drawable/no_image"
+                    android:background="@color/cardview_light_background"
+                    android:layout_width="100sp"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_marginTop="5sp"
+                    android:layout_below="@+id/productImage"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/add_new_image"
+                    android:id="@+id/btnAddImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_marginTop="20sp"
+                android:layout_below="@+id/productImageWrap"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <EditText
+                                android:id="@+id/productName"
+                                android:hint="@string/product_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                        </android.support.design.widget.TextInputLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <android.support.design.widget.TextInputLayout
+                                android:layout_weight=".60"
+                                android:layout_width="0sp"
+                                android:layout_height="wrap_content">
+                                <EditText
+                                    android:inputType="number"
+                                    android:id="@+id/productQty"
+                                    android:hint="@string/product_qty"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content" />
+                            </android.support.design.widget.TextInputLayout>
+
+                            <android.support.design.widget.TextInputLayout
+                                android:layout_weight=".40"
+                                android:layout_width="0sp"
+                                android:layout_height="wrap_content">
+                                <com.septianfujianto.inventorymini.utils.InstantAutoComplete
+                                    android:id="@+id/productQtyLabel"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content" />
+                            </android.support.design.widget.TextInputLayout>
+                        </LinearLayout>
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <com.septianfujianto.inventorymini.utils.InstantAutoComplete
+                                android:hint="@string/product_brand"
+                                android:id="@+id/productBrand"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                        </android.support.design.widget.TextInputLayout>
+
+                        <TextView
+                            android:layout_marginLeft="10sp"
+                            android:layout_marginTop="10sp"
+                            android:layout_marginBottom="10sp"
+                            android:text="@string/product_category"
+                            android:textSize="12sp"
+                            android:fontFamily="sans-serif-condensed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <LinearLayout
+                            android:layout_marginTop="5sp"
+                            android:layout_marginBottom="5sp"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <LinearLayout
+                                android:gravity="center_vertical"
+                                android:layout_gravity="center_vertical"
+                                android:orientation="vertical"
+                                android:layout_weight=".85"
+                                android:layout_width="0sp"
+                                android:layout_height="wrap_content">
+                                <Spinner
+                                    android:id="@+id/productCat"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+                                </Spinner>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_weight=".15"
+                                android:layout_width="0sp"
+                                android:padding="5sp"
+                                android:layout_height="wrap_content">
+                                <com.joanzapata.iconify.widget.IconButton
+                                    android:id="@+id/btnCreateCategory"
+                                    android:background="@color/colorAccent"
+                                    android:layout_centerInParent="true"
+                                    android:text="{fa-plus}"
+                                    android:textColor="@color/icons"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_marginLeft="10sp"
+                            android:layout_marginTop="10sp"
+                            android:layout_marginBottom="10sp"
+                            android:text="@string/product_location"
+                            android:textSize="12sp"
+                            android:fontFamily="sans-serif-condensed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <LinearLayout
+                            android:layout_marginTop="5sp"
+                            android:layout_marginBottom="5sp"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <LinearLayout
+                                android:gravity="center_vertical"
+                                android:layout_gravity="center_vertical"
+                                android:orientation="vertical"
+                                android:layout_weight=".85"
+                                android:layout_width="0sp"
+                                android:layout_height="wrap_content">
+                                <Spinner
+                                    android:id="@+id/productLocation"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+                                </Spinner>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_weight=".15"
+                                android:layout_width="0sp"
+                                android:padding="5sp"
+                                android:layout_height="wrap_content">
+                                <com.joanzapata.iconify.widget.IconButton
+                                    android:id="@+id/btnCreateLocation"
+                                    android:background="@color/colorAccent"
+                                    android:layout_centerInParent="true"
+                                    android:text="{fa-plus}"
+                                    android:textColor="@color/icons"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+                                </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <android.support.design.widget.TextInputLayout
+                                android:layout_weight=".60"
+                                android:layout_width="0sp"
+                                android:layout_height="wrap_content">
+                                <EditText
+                                    android:inputType="number"
+                                    android:id="@+id/productWeight"
+                                    android:hint="@string/product_weight"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content" />
+                            </android.support.design.widget.TextInputLayout>
+
+                            <android.support.design.widget.TextInputLayout
+                                android:layout_weight=".40"
+                                android:layout_width="0sp"
+                                android:layout_height="wrap_content">
+                                <com.septianfujianto.inventorymini.utils.InstantAutoComplete
+                                    android:id="@+id/productWeightLabel"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content" />
+                            </android.support.design.widget.TextInputLayout>
+                        </LinearLayout>
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <EditText
+                                android:hint="@string/product_qty_wacth"
+                                android:id="@+id/productQtyWatch"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                        </android.support.design.widget.TextInputLayout>
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <EditText
+                                android:id="@+id/producDesc"
+                                android:lines="5"
+                                android:inputType="textMultiLine"
+                                android:scrollbars="vertical"
+                                android:hint="@string/product_desc"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                        </android.support.design.widget.TextInputLayout>
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_marginTop="20sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <EditText
+                                android:inputType="number"
+                                android:id="@+id/productPrice"
+                                android:hint="@string/product_price"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                        </android.support.design.widget.TextInputLayout>
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <EditText
+                                android:inputType="number"
+                                android:id="@+id/productPriceBulk"
+                                android:hint="@string/product_price_bulk"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                        </android.support.design.widget.TextInputLayout>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <com.google.android.gms.ads.AdView
+                    android:layout_marginTop="5sp"
+                    android:layout_marginBottom="5sp"
+                    android:layout_gravity="bottom"
+                    android:layout_below="@id/rcv_listProduct"
+                    xmlns:ads="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/adView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    ads:adSize="SMART_BANNER"
+                    ads:adUnitId="@string/create_product_ad_unit_id">
+                </com.google.android.gms.ads.AdView>
+
+                <Button
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:id="@+id/btnAddProduct"
+                    android:text="@string/add_new"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
